@@ -36,19 +36,11 @@ func initUserDao() {
 	// model.MyUserDao = model.NewUserDao(pool)
 }
 
-// func init() {
-// 	// 當服務器啟動時，我們就去初始化我們的 redis 的連接池
-// 	initPool("localhost:6379", 16, 0, 300*time.Second)
-
-// 	initUserDao()
-// }
-
 func main() {
 
 	initPool("localhost:6379", 16, 0, 300*time.Second)
 	initUserDao()
 
-	// 提示信息
 	fmt.Println("服務器[新的結構]在8889端口監聽...")
 	listen, err := net.Listen("tcp", "0.0.0.0:8889")
 	defer listen.Close()
@@ -58,7 +50,6 @@ func main() {
 		return
 	}
 
-	// 一但監聽成功，就等待客戶端來連接服務器
 	for {
 		fmt.Println("等待客戶端來連接服務器......")
 		conn, err := listen.Accept()
@@ -66,11 +57,6 @@ func main() {
 			fmt.Println("listen.Accept err=", err)
 		}
 
-		// 一但連接成功，則啟動一個協成和客戶保持通訊...
 		go Process(conn)
 	}
-
 }
-
-// cd path/to/your/go/project
-// /Users/yzj90596/go/bin/dlv debug

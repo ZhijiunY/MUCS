@@ -12,13 +12,8 @@ import (
 type SmsProcess struct {
 }
 
-// 寫方法轉發消息
 func (sp *SmsProcess) SendGroupMes(mes *message.Message) {
 
-	// 遍歷服務器端的onlineUsers map[int]*UserProcess,
-	// 將消息轉發出去
-
-	// 取出 mes 的內容 SmsMes
 	var smsMes message.SmsMes
 	err := json.Unmarshal([]byte(mes.Data), &smsMes)
 	if err != nil {
@@ -33,7 +28,7 @@ func (sp *SmsProcess) SendGroupMes(mes *message.Message) {
 	}
 
 	for id, up := range userMgr.onlineUsers {
-		// 這裏，還需要過濾到自己，即不要再發給自己
+
 		if id == smsMes.UserId {
 			continue
 		}
@@ -43,7 +38,6 @@ func (sp *SmsProcess) SendGroupMes(mes *message.Message) {
 
 func (sp *SmsProcess) SendMesToEachOnlineUser(data []byte, conn net.Conn) {
 
-	// 創建一個 Transfer 實例，發送 data
 	tf := &utils.Transfer{
 		Conn: conn, //
 	}
