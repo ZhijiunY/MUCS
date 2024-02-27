@@ -1,60 +1,54 @@
 # Multi-User Chat System (MUCS)
-多人聊天系統（MUCS）是一個簡單的即時通訊解決方案，允許用戶通過客戶端應用註冊、登入並加入不同的聊天室進行溝通。這個項目使用 Go 語言進行開發，展示了基於 TCP 的服務器/客戶端架構的實現方法。
+ [中文版](README.zh.md)
+
+Multi-User Chat System (MUCS) is a simple instant messaging solution that allows users to register, log in, and join different chat rooms for communication through a client application. This project is developed in Go language, demonstrating an implementation method for a server/client architecture based on TCP.
 ![](/img/mes.png)
 
-# 功能特點
-- 用戶註冊和登入：新用戶可以註冊一個帳號，並用該帳號登入系統。
-- 多人聊天室：用戶可以加入公共聊天室，與其他在線用戶進行交流。
-- 實時消息交換：支持文本消息的即時傳輸。
-- 基於 TCP 的網絡通信：使用 Go 語言的網絡編程接口構建穩定的客戶端和服務器通信。
-- 數據存儲：利用 Redis 進行用戶信息和聊天記錄的存儲管理。
+## Features
+- User Registration and Login: New users can register an account and log in to the system with that account.
+- Multi-User Chat Rooms: Users can join public chat rooms to communicate with other online users.
+- Real-time Message Exchange: Supports the instant transmission of text messages.
+- TCP-based Network Communication: Builds stable client and server communication using Go language's network programming interface.
+- Data Storage: Utilizes Redis for storing and managing user information and chat history.
 
-# 開始
-以下指南將幫助您在本地機器上安裝和運行本項目，用於開發和測試目的。
+## Getting Started
+The following guide will help you install and run this project on your local machine for development and testing purposes.
 
-## 先決條件
-在開始之前，您需要安裝以下軟件：
+- Go 1.19.3
+- Redis Server
 
-- Go 語言環境
-- Redis 服務器
-
-## 安裝
-1. 克隆倉庫
+### Installation
+1. Clone the repository:
 ```
-git clone https://github.com/example/mucs.git
-cd mucs
+git clone https://github.com/ZhijiunY/MUCS.git
 ```
-2. 啟動 Redis 服務器
-確保您的 Redis 服務器正在運行。
+2. Start the Redis Server
+Ensure your Redis server is running.
 ![](/img/redis.png)
 
-3. 運行服務器
-在項目的服務器目錄下運行以下命令：
+3. Run the Server
+Execute the following command in the server directory of the project:
 ```
 ./server.exe
 ```
 ![](/img/server.png)
 
-4. 運行客戶端
-在另一個終端窗口(這邊開兩個)，運行客戶端應用：
+4. Run the Client
+In another terminal window (open two of these), run the client application:
 ```
 ./client.exe
 ```
 ![](/img/client.png)
 
-# 使用說明
-- 在客戶端應用啟動後，按照提示選擇登入、註冊或退出。
-- 登入或註冊後，您將能夠加入聊天室與其他用戶交流。
+## Usage Instructions
+- After the client application starts, follow the prompts to log in, sign up, or exit.
+- Once logged in or registered, you will be able to join chat rooms and communicate with other users.
 
-# 架構
-此項目採用客戶端-服務器模型，主要包含兩部分：客戶端應用和服務器應用。服務器負責處理用戶請求、消息轉發和數據持久化。客戶端提供用戶界面，支持用戶進行交互操作。
+## Architecture
+This project adopts a client-server model, mainly consisting of two parts: the client application and the server application. The server is responsible for handling user requests, message forwarding, and data persistence. The client provides a user interface, supporting user interactions.
 
-# 貢獻
-歡迎任何形式的貢獻。對於大的變更，請先開一個 issue 討論您想要改變的內容。
+## Contribution
+Contributions of any kind are welcome. For significant changes, please open an issue first to discuss what you would like to change.
 
-# 版本歷史
+## Version 
 0.1
-初始版本
-
-# 作者
-@Zhijiun - 初始工作
